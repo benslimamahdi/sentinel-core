@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinelCore | The Future of Monitoring</title>
+    <meta name="description" content="SentinelCore provides advanced, AI-driven monitoring for the next generation of infrastructure.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0a',
+                            gray: '#171717',
+                            accent: '#06b6d4', // Cyan
+                            purple: '#8b5cf6', // Violet
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('hero_background.png')",
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(23, 23, 23, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+        }
+        .neon-border {
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.3), inset 0 0 10px rgba(139, 92, 246, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 glass-panel border-b border-white/10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                    <img src="SentinelCore logo.svg" alt="SentinelCore Logo" class="h-10 w-auto">
+                    <span class="font-bold text-xl tracking-tight text-white">Sentinel<span class="text-brand-accent">Core</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#features" class="text-gray-300 hover:text-white hover:text-glow transition-all px-3 py-2 rounded-md text-sm font-medium">Features</a>
+                        <a href="#product" class="text-gray-300 hover:text-white hover:text-glow transition-all px-3 py-2 rounded-md text-sm font-medium">Product</a>
+                        <a href="#pricing" class="text-gray-300 hover:text-white hover:text-glow transition-all px-3 py-2 rounded-md text-sm font-medium">Pricing</a>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="hidden md:block">
+                    <a href="#pricing" class="bg-gradient-to-r from-brand-accent to-brand-purple hover:from-cyan-400 hover:to-violet-400 text-white font-semibold py-2.5 px-6 rounded-full shadow-lg shadow-brand-accent/20 transition-all transform hover:scale-105">
+                        Start Free Trial
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none transition-colors">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden glass-panel border-b border-white/10" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#features" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Features</a>
+                <a href="#product" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Product</a>
+                <a href="#pricing" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Pricing</a>
+                <a href="#pricing" class="bg-brand-accent text-black block px-3 py-2 rounded-md text-base font-bold mt-4 text-center">Start Free Trial</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Image & Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="hero_background.png" alt="Background" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-dark/80 to-brand-dark"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-brand-accent/30 mb-8 animate-float">
+                <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+                <span class="text-sm text-brand-accent font-medium tracking-wide uppercase">System Online v2.0</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                The Future of <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-purple text-glow">Infrastructure Monitoring</span>
+            </h1>
+            
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400 mb-10">
+                SentinelCore leverages advanced AI to predict anomalies before they happen. Secure, decentralized, and built for the next generation of tech.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#pricing" class="bg-white text-black hover:bg-gray-200 font-bold py-4 px-8 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all transform hover:scale-105">
+                    Get Started Now
+                </a>
+                <a href="#product" class="glass-panel text-white hover:bg-white/10 font-semibold py-4 px-8 rounded-full border border-white/20 transition-all flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Watch Demo
+                </a>
+            </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-brand-dark to-transparent z-20"></div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 relative bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-brand-purple font-semibold tracking-wide uppercase text-sm mb-2">Core Capabilities</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
+                    Engineered for <span class="text-brand-accent">Performance</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Feature 1 -->
+                <div class="group relative p-8 rounded-2xl glass-panel hover:bg-white/5 transition-all duration-300 border border-white/5 hover:border-brand-accent/50">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-accent/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-xl bg-black/50 flex items-center justify-center mb-6 border border-white/10 group-hover:scale-110 transition-transform duration-300">
+                            <img src="icon_anomaly_detection.png" alt="Anomaly Detection" class="w-10 h-10 object-contain">
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Predictive Anomaly Detection</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Our AI models analyze historical data to forecast irregularities before they impact your system uptime.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="group relative p-8 rounded-2xl glass-panel hover:bg-white/5 transition-all duration-300 border border-white/5 hover:border-brand-purple/50">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-purple/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-xl bg-black/50 flex items-center justify-center mb-6 border border-white/10 group-hover:scale-110 transition-transform duration-300">
+                            <img src="icon_security.png" alt="Security" class="w-10 h-10 object-contain">
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Decentralized Security</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            End-to-end encryption distributed across a mesh network ensures your data remains sovereign and untouchable.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="group relative p-8 rounded-2xl glass-panel hover:bg-white/5 transition-all duration-300 border border-white/5 hover:border-brand-accent/50">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-accent/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-xl bg-black/50 flex items-center justify-center mb-6 border border-white/10 group-hover:scale-110 transition-transform duration-300">
+                            <img src="icon_automation.png" alt="Automation" class="w-10 h-10 object-contain">
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Intelligent Automation</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Set complex triggers and let SentinelCore handle the remediation automatically, 24/7.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="product" class="py-24 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-brand-accent/5 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+                
+                <!-- Text Content -->
+                <div class="lg:col-span-5 mb-12 lg:mb-0">
+                    <h2 class="text-4xl font-extrabold text-white mb-6">
+                        Command Center <br>
+                        <span class="text-brand-purple">Reimagined</span>
+                    </h2>
+                    <p class="text-gray-400 text-lg mb-8">
+                        Experience a dashboard that feels like it's from the future. Real-time visualization, drag-and-drop widgets, and instant alerts.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-brand-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Real-time Data Streams
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-brand-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Customizable Layouts
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-brand-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            One-Click Export
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Dashboard Image -->
+                <div class="lg:col-span-7">
+                    <div class="relative rounded-xl border border-white/10 bg-brand-gray shadow-2xl shadow-brand-purple/20 p-2 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                        <!-- Monitor Frame -->
+                        <div class="absolute top-0 left-0 w-full h-full border border-white/5 rounded-xl pointer-events-none z-20"></div>
+                        <div class="relative rounded-lg overflow-hidden bg-black">
+                            <img src="dashboard screenshot.jpg" alt="SentinelCore Dashboard" class="w-full h-auto opacity-90 hover:opacity-100 transition-opacity">
+                            <!-- Glitch overlay effect could go here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-brand-gray/30 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center text-3xl font-bold text-white mb-16">Trusted by Innovators</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-panel p-8 rounded-2xl relative">
+                    <div class="text-brand-accent text-4xl absolute top-4 left-4 opacity-50">"</div>
+                    <p class="text-gray-300 mb-6 relative z-10 pt-4">
+                        SentinelCore completely transformed how we monitor our decentralized nodes. The predictive alerts saved us from a major outage last month.
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold">A</div>
+                        <div class="ml-3">
+                            <p class="text-white font-medium">Alex Chen</p>
+                            <p class="text-sm text-gray-500">CTO, NexusGrid</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-panel p-8 rounded-2xl relative">
+                    <div class="text-brand-accent text-4xl absolute top-4 left-4 opacity-50">"</div>
+                    <p class="text-gray-300 mb-6 relative z-10 pt-4">
+                        The UI is stunning, but the performance is even better. It handles our petabytes of data without breaking a sweat.
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold">S</div>
+                        <div class="ml-3">
+                            <p class="text-white font-medium">Sarah Jenkins</p>
+                            <p class="text-sm text-gray-500">Lead DevOps, CyberFlow</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-panel p-8 rounded-2xl relative">
+                    <div class="text-brand-accent text-4xl absolute top-4 left-4 opacity-50">"</div>
+                    <p class="text-gray-300 mb-6 relative z-10 pt-4">
+                        Finally, a monitoring tool that looks like it belongs in this century. The automation features are a game changer for our lean team.
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-green-400 to-cyan-500 flex items-center justify-center text-white font-bold">M</div>
+                        <div class="ml-3">
+                            <p class="text-white font-medium">Marcus Thorne</p>
+                            <p class="text-sm text-gray-500">Founder, OrbitalTech</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Pricing Preview -->
+    <section id="pricing" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to Upgrade?</h2>
+            <p class="text-xl text-gray-400 mb-10">
+                Join the thousands of developers building the future with SentinelCore.
+            </p>
+            
+            <div class="glass-panel p-1 rounded-2xl inline-block w-full max-w-md">
+                <div class="bg-brand-dark rounded-xl p-8 border border-white/5">
+                    <h3 class="text-2xl font-bold text-white mb-2">Pro License</h3>
+                    <div class="text-5xl font-extrabold text-brand-accent mb-6">$49<span class="text-lg text-gray-500 font-normal">/mo</span></div>
+                    <ul class="text-left space-y-3 mb-8 text-gray-400">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Unlimited Data Sources</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Advanced AI Predictions</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 24/7 Priority Support</li>
+                    </ul>
+                    <button class="w-full bg-gradient-to-r from-brand-accent to-brand-purple hover:from-cyan-400 hover:to-violet-400 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-brand-accent/25">
+                        Start 14-Day Free Trial
+                    </button>
+                    <p class="mt-4 text-xs text-gray-500">No credit card required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-2 mb-4 md:mb-0">
+                <img src="SentinelCore logo.svg" alt="Logo" class="h-8 w-auto grayscale opacity-70 hover:opacity-100 transition-opacity">
+                <span class="text-gray-500 font-semibold">SentinelCore</span>
+            </div>
+            
+            <div class="flex space-x-6 text-sm text-gray-500">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="#" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            
+            <div class="mt-4 md:mt-0 text-sm text-gray-600">
+                &copy; 2025 SentinelCore Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('bg-black/80', 'backdrop-blur-md');
+            } else {
+                navbar.classList.remove('bg-black/80', 'backdrop-blur-md');
+            }
+        });
+    </script>
+</body>
+</html>
