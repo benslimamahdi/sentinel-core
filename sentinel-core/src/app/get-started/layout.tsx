@@ -16,14 +16,14 @@ export default function GetStartedLayout({
                     <aside className="w-full lg:w-64 shrink-0">
                         <nav className="sticky top-24 space-y-8">
                             <div>
-                                <h3 className="font-semibold text-white mb-4">Getting Started</h3>
+                                <h3 className="font-semibold text-white mb-4">Overview</h3>
                                 <ul className="space-y-2">
                                     <li>
                                         <Link
                                             href="/get-started"
                                             className="block text-sm text-muted-foreground hover:text-cyan-400 transition-colors"
                                         >
-                                            Installation
+                                            Our Process
                                         </Link>
                                     </li>
                                     <li>

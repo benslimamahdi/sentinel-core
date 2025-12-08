@@ -1,20 +1,25 @@
-import { Activity, Shield, Cpu } from "lucide-react";
+import { Activity, Bell, BarChart3, TrendingUp } from "lucide-react";
 
 const features = [
     {
+        icon: Bell,
+        title: "Real-Time Alerts",
+        description: "Receive instant, intelligent notifications about security breaches and system anomalies the moment they occur.",
+    },
+    {
+        icon: BarChart3,
+        title: "Data Analytics",
+        description: "Transform raw logs into actionable insights with our advanced analytics engine and visualization tools.",
+    },
+    {
+        icon: TrendingUp,
+        title: "System Optimizations",
+        description: "Automatically identify bottlenecks and auto-tune your infrastructure for peak performance and reduced latency.",
+    },
+    {
         icon: Activity,
-        title: "Predictive Anomaly Detection",
-        description: "Our AI models analyze historical data to forecast irregularities before they impact your system uptime.",
-    },
-    {
-        icon: Shield,
-        title: "Decentralized Security",
-        description: "End-to-end encryption distributed across a mesh network ensures your data remains sovereign and untouchable.",
-    },
-    {
-        icon: Cpu,
-        title: "Intelligent Automation",
-        description: "Set complex triggers and let SentinelCore handle the remediation automatically, 24/7.",
+        title: "Live Statistics",
+        description: "Monitor vital health metrics, uptime status, and resource consumption with millisecond-precision statistics.",
     },
 ];
 
@@ -39,21 +44,24 @@ export function Features() {
                             Performance
                         </span>
                     </h2>
+                    <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
+                        Experience the power of our integrated platform, designed to deliver critical insights and keeping your operations running smoothly.
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="flex flex-col p-8 bg-card border border-white/5 rounded-2xl hover:border-primary/30 transition-all duration-300"
+                            className="flex flex-col p-6 bg-card border border-white/5 rounded-2xl hover:border-primary/30 transition-all duration-300 group"
                         >
                             <div className="flex items-center gap-4 mb-4">
-                                <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
-                                    <feature.icon className="h-7 w-7 text-primary" />
+                                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:scale-110 transition-transform duration-300">
+                                    <feature.icon className="h-6 w-6 text-primary" />
                                 </div>
-                                <h3 className="text-xl font-bold text-white">{feature.title}</h3>
+                                <h3 className="text-lg font-bold text-white leading-tight">{feature.title}</h3>
                             </div>
-                            <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                            <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
                         </div>
                     ))}
                 </div>

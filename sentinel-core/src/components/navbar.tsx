@@ -48,9 +48,11 @@ export function Navbar() {
 
                 {/* Desktop Action Button */}
                 <div className="hidden md:flex md:items-center md:gap-4">
-                    <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-full px-6">
-                        Start Free Trial
-                    </Button>
+                    <Link href="#contact">
+                        <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-full px-6">
+                            Book Consultation
+                        </Button>
+                    </Link>
                 </div>
 
                 {/* Mobile Menu Toggle Button */}
@@ -89,9 +91,11 @@ export function Navbar() {
                             Pricing
                         </Link>
                         <div className="pt-4">
-                            <Button className="w-full justify-center bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-full">
-                                Start Free Trial
-                            </Button>
+                            <Link href="#contact" onClick={() => setIsOpen(false)}>
+                                <Button className="w-full justify-center bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-full">
+                                    Book Consultation
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </div>

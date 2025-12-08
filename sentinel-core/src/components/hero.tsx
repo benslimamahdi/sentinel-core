@@ -64,7 +64,7 @@ export function Hero() {
                                 href="/get-started"
                                 className={cn(buttonVariants({ size: "lg" }), "bg-white hover:bg-white/90 text-black font-semibold rounded-full px-8 h-12")}
                             >
-                                Get Started Now
+                                How We Work
                             </Link>
                             <Button
                                 variant="outline"
