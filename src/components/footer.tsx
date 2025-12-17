@@ -14,7 +14,7 @@ export function Footer() {
                     <div className="flex flex-col gap-4">
                         <Link href="/">
                             <Image
-                                src="/new full logo.png"
+                                src="/logo-full.png"
                                 alt="SentinelCore"
                                 width={240}
                                 height={60}

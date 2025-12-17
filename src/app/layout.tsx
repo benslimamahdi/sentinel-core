@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   title: "SentinelCore - Infrastructure Monitoring & Security",
   description: "Advanced AI-powered infrastructure monitoring. Predict anomalies before they happen with SentinelelCore's decentralized security platform.",
   icons: {
-    icon: "/new favicon.png",
-    shortcut: "/new favicon.png",
-    apple: "/new favicon.png",
+    icon: "/favicon-new.png",
+    shortcut: "/favicon-new.png",
+    apple: "/favicon-new.png",
   },
 };
 

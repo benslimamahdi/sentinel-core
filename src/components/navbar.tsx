@@ -24,7 +24,7 @@ export function Navbar() {
                 {/* Logo Section */}
                 <Link href="/" className="flex items-center">
                     <Image
-                        src="/new full logo.png"
+                        src="/logo-full.png"
                         alt="SentinelCore"
                         width={280}
                         height={70}
