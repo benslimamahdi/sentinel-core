@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BASE_PATH } from "@/lib/constants";
 
 /**
  * Product Component
@@ -26,7 +27,7 @@ export function Product() {
                 <div className="relative max-w-6xl mx-auto [perspective:1000px]">
                     <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:rotate-1 transform-gpu">
                         <Image
-                            src="/dashboard.jpg"
+                            src={`${BASE_PATH}/dashboard.jpg`}
                             alt="SentinelCore Dashboard"
                             width={1920}
                             height={1080}

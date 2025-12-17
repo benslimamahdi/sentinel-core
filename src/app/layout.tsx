@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { CookieConsent } from "@/components/cookie-consent";
+import { BASE_PATH } from "@/lib/constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,9 +18,9 @@ export const metadata: Metadata = {
   title: "SentinelCore - Infrastructure Monitoring & Security",
   description: "Advanced AI-powered infrastructure monitoring. Predict anomalies before they happen with SentinelelCore's decentralized security platform.",
   icons: {
-    icon: "/favicon-new.png",
-    shortcut: "/favicon-new.png",
-    apple: "/favicon-new.png",
+    icon: `${BASE_PATH}/favicon-new.png`,
+    shortcut: `${BASE_PATH}/favicon-new.png`,
+    apple: `${BASE_PATH}/favicon-new.png`,
   },
 };
 

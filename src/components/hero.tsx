@@ -5,6 +5,7 @@ import { Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { BASE_PATH } from "@/lib/constants";
 
 /**
  * Hero Component
@@ -33,7 +34,7 @@ export function Hero() {
 
                             {/* Shield image */}
                             <Image
-                                src="/hero-shield.png"
+                                src={`${BASE_PATH}/hero-shield.png`}
                                 alt="SentinelCore Security Shield"
                                 width={400}
                                 height={400}

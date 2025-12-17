@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BASE_PATH } from "@/lib/constants";
 
 /**
  * Footer Component
@@ -14,7 +15,7 @@ export function Footer() {
                     <div className="flex flex-col gap-4">
                         <Link href="/">
                             <Image
-                                src="/logo-full.png"
+                                src={`${BASE_PATH}/logo-full.png`}
                                 alt="SentinelCore"
                                 width={240}
                                 height={60}

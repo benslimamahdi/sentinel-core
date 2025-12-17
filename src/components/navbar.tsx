@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
+import { BASE_PATH } from "@/lib/constants";
 
 /**
  * Navbar Component
@@ -24,7 +25,7 @@ export function Navbar() {
                 {/* Logo Section */}
                 <Link href="/" className="flex items-center">
                     <Image
-                        src="/logo-full.png"
+                        src={`${BASE_PATH}/logo-full.png`}
                         alt="SentinelCore"
                         width={280}
                         height={70}
